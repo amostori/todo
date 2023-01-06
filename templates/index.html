@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <div class="content">
+        <header>
+            <h1>
+                Rodzina Adamsów</h1>
+            <p>Uwaga! Dla ludzi o mocnych nerwach.</p>
+        </header>
+        <p> Strona zawiera drastyczne zdjęcia i teksty. Przeglądanie
+            grozi nieodwracalnym polubieniem dziwaków skupionych wokół rodziny Andrzejczaków. Czuj się
+            ostrzeżony.</p>
+    </div>
+    <span class="image object">
+                    <img src="https://live.staticflickr.com/65535/49976552127_71d5b93ab6_c.jpg"
+                         alt="DSCF6412">
+                </span>
+</section>
+
+
+<form method="post" action="#">
+    <div class="row gtr-uniform">
+        <div class="col-6 col-12-xsmall">
+            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name"/>
+        </div>
+        <div class="col-6 col-12-xsmall">
+            <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email"/>
+        </div>
+        <!-- Break -->
+        <div class="col-12">
+                                    <textarea name="demo-message" id="demo-message" placeholder="Enter your message"
+                                              rows="6"></textarea>
+        </div>
+        <!-- Break -->
+        <div class="col-12">
+            <ul class="actions">
+                <li><input type="submit" value="Send Message" class="primary"/></li>
+                <li><input type="reset" value="Reset"/></li>
+            </ul>
+        </div>
+    </div>
+</form>
+{% endblock %}
