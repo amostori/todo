@@ -41,4 +41,11 @@
         </div>
     </div>
 </form>
+<h4>{{completions}}</h4>
+<p><ul>
+    {% for completion in completions %}
+    <li><p>{{completion[0]}}</p><p>{{completion[1]}}</p><p>{{completion[2]}}</p></li>
+    {% endfor %}
+</ul>
+</p>
 {% endblock %}
