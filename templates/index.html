@@ -21,12 +21,7 @@
 
 <form method="post">
     <div class="row gtr-uniform">
-        <div class="col-6 col-12-xsmall">
-            <input type="text" name="name" id="demo-name" value="" placeholder="Name"/>
-        </div>
-        <div class="col-6 col-12-xsmall">
-            <input type="email" name="email" id="demo-email" value="" placeholder="Email"/>
-        </div>
+
         <!-- Break -->
         <div class="col-12">
                                     <textarea name="message" id="demo-message" placeholder="Enter your message"
@@ -41,11 +36,9 @@
         </div>
     </div>
 </form>
-<h4>{{all_test}}</h4>
-<h4>{{entries}}</h4>
 <p><ul>
     {% for entry in entries %}
-    <li><p>{{entry[0]}}</p><p>{{entry[1]}}</p><p>{{entry[2]}}</p></li>
+    <li>{{entry}}</li>
     {% endfor %}
 </ul>
 </p>
