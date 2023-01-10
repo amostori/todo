@@ -9,10 +9,10 @@ def index():
         name = request.form.get('name')
         email = request.form.get('email')
         message = request.form.get('message')
-        current_app.db.completions.insert_one({'name': name,
-                                               'email': email,
-                                               'message': message})
-    completions = [(completion['message'], completion['email'], completion['name']) for completion in
-                   current_app.db.completions.find({})]
-    # entries = current_app.db.completions.find({})
-    return render_template('index.html', completions=completions)
+        current_app.db.entries.insert_one({'name': name,
+                                           'email': email,
+                                           'message': message})
+    entries = [(entry['message'], entry['email'], entry['name']) for entry in
+               current_app.db.entries.find({})]
+    all_test = current_app.db.entries.find({})
+    return render_template('index.html', entries=entries, all_test=all_test)
