@@ -19,27 +19,31 @@
 </section>
 
 
-<form  hx-post="/submit_message" hx-swap="afterbegin" hx-target="#new-entry">
+<form  hx-post="/submit_message" hx-swap="beforeend" hx-target="#new-entry">
     <div class="row gtr-uniform">
 
         <!-- Break -->
+        <div class="col-6 col-12-xsmall">
+            <input type="text" name="name" id="demo-name" value="" placeholder="Tytuł dzieła" />
+        </div>
         <div class="col-12">
-                                    <textarea name="message" id="demo-message" placeholder="Enter your message"
+                                    <textarea name="message" id="demo-message" placeholder="Niech dzieje się magia słowa..."
                                               rows="6"></textarea>
         </div>
         <!-- Break -->
         <div class="col-12">
             <ul class="actions">
-                <li><input type="submit" value="Send Message" class="primary"/></li>
-                <li><input type="reset" value="Reset"/></li>
+                <li><input type="submit" value="Zapisz dzieło dla potomności" class="primary"/></li>
+                <li><input type="reset" value="Resetuj"/></li>
             </ul>
         </div>
     </div>
 </form>
-<p><ul id="new-entry" hx-target="closest li" hx-swap="outerHTML swap:0.5s">
+<p id="new-entry" hx-target="closest li" hx-swap="outerHTML swap:0.5s">
     {% for message in messages %}
-    <li>{{message}}</li>
+    <h4>{{message[0]}}</h4>
+    <p>{{message[1]}}</p>
     {% endfor %}
-</ul>
+
 </p>
 {% endblock %}
