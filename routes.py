@@ -3,12 +3,19 @@ from flask import Blueprint, render_template, request, current_app
 page = Blueprint('page', __name__, static_folder='static', template_folder='templates')
 
 
-@page.route('/', methods=['GET', 'POST'])
+@page.route('/', methods=['GET'])
 def index():
-    if request.method == 'POST':
-        message = request.form.get('message')
-        current_app.db.entries.insert_one({'message': message})
-    entries = [entry['message'] for entry in
-               current_app.db.entries.find({})]
+    messages = [entry['message'] for entry in
+                current_app.db.entries.find({})]
     all_test = current_app.db.entries.find({})
-    return render_template('index.html', entries=entries, all_test=all_test)
+    return render_template('index.html', messages=messages, all_test=all_test)
+
+
+@page.route('/submit_message', methods=['POST'])
+def submit_message():
+    message = request.form.get('message')
+    current_app.db.entries.insert_one({'message': message})
+    response = f"""
+    <li>{message}</li>
+    """
+    return response

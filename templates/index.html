@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
 {% block content %}
 <!-- Banner -->
 <section id="banner">
@@ -19,7 +19,7 @@
 </section>
 
 
-<form method="post">
+<form  hx-post="/submit_message" hx-swap="afterbegin" hx-target="#new-entry">
     <div class="row gtr-uniform">
 
         <!-- Break -->
@@ -36,9 +36,9 @@
         </div>
     </div>
 </form>
-<p><ul>
-    {% for entry in entries %}
-    <li>{{entry}}</li>
+<p><ul id="new-entry" hx-target="closest li" hx-swap="outerHTML swap:0.5s">
+    {% for message in messages %}
+    <li>{{message}}</li>
     {% endfor %}
 </ul>
 </p>
